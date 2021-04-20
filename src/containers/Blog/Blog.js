@@ -3,7 +3,8 @@ import React, { Component } from "react";
 
 import Posts from "../Blog/Posts/Posts";
 import "./Blog.css";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
+import NewPost from "../Blog/NewPost/NewPost";
 class Blog extends Component {
   render() {
     return (
@@ -12,13 +13,23 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <a href="/posts">New Post</a>
+                <Link to="/">Home</Link>
+                <Link
+                  to={{
+                    pathname: "/New-Post",
+                    hash: "#search",
+                    search: "?some-true",
+                  }}
+                >
+                  New Post
+                </Link>
               </li>
             </ul>
           </nav>
         </header>
-        <Posts   />
-        <Route path="/posts"  exact render={()=> <h1>Arsalan</h1>}/>     </div>
+        <Route path="/" exact render={() => <Posts />} />
+        <Route path="/New-Post" render={() => <NewPost />} />{" "}
+      </div>
     );
   }
 }
