@@ -44,7 +44,6 @@ class Posts extends Component {
                     clicked={() => this.postSelectedHandler(post.id)} />;
             });
         }
-
         return (
             <section className={Classes.Posts}>
                 {posts}
